@@ -1,34 +1,27 @@
 # multi-stage Dockerfile
 
 # ---- base ----
-FROM node:current-alpine AS base
-WORKDIR /app
+FROM mhart/alpine-node:15.5 AS base
+WORKDIR /base
 COPY ./app/package.json .
-
-# ---- dependencies ----
-FROM base AS dependencies
-# install only production
-RUN yarn --production
-# copy production node_modules aside
-RUN cp -R node_modules prod_node_modules
-
-# ---- development ----
-FROM dependencies AS dev
-ENV NODE_ENV=development
-# install all node_modules, including 'devDependencies'
-RUN yarn --development
-
-# ---- release ----
-FROM dependencies AS release
-ENV NODE_ENV=production
-# copy production node_modules
-COPY --from=dependencies /app/prod_node_modules ./node_modules
-# copy app sources
+COPY ./app/yarn.lock .
+RUN yarn install --frozen-lockfile
 COPY ./app .
 
-# build
+# ---- build ----
+FROM base AS builder
+ENV NODE_ENV=production
+WORKDIR /build
+COPY --from=base /base ./
 RUN yarn build
+RUN yarn install --production
 
-# expose port and define CMD
-EXPOSE 5000
-CMD yarn start
+# ---- production ----
+FROM mhart/alpine-node:15.5 AS runner
+ENV NODE_ENV=production
+WORKDIR /app
+COPY --from=builder /build/node_modules ./node_modules
+COPY --from=builder /build/.next ./.next
+COPY --from=builder /build/public ./public
+
+CMD ["node_modules/.bin/next", "start", "-p", "5000"]
