@@ -9,13 +9,14 @@ x-common-props: &common-props
     - ./app:/base
     - node_modules:/base/node_modules
 
-services: 
+services:
   yarn:
     <<: *common-props
     entrypoint: yarn
   dev:
     <<: *common-props
-    ports: 
+    container_name: app
+    ports:
       - "5000:5000"
     command: yarn dev
 volumes:

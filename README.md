@@ -7,7 +7,13 @@ Dockerising a Next.js project and Development environment settings
 [docker](https://docs.docker.com/engine/install/), [docker-compose](https://docs.docker.com/compose/install/) must be installed
 
 ```bash
-$ docker-compose up -d
+$ docker-compose up -d dev
+```
+
+`yarn` command it's entry point. You can use it like this:
+
+```bash
+$ docker-compose run yarn add --dev typescript
 ```
 
 ## Production
