@@ -10,10 +10,8 @@
     "format": "prettier --check ."
   },
   "lint-staged": {
-    "app/**/*.{ts,tsx}": [
-      "eslint --ext .ts,.tsx . --fix"
-    ],
-    "./app/**": [
+    "*.{ts,js,tsx,jsx}": [
+      "eslint --ext .ts,.tsx . --fix",
       "prettier --write ."
     ]
   },
