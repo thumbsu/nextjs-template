@@ -3,10 +3,10 @@
 # ---- base ----
 FROM mhart/alpine-node:15.5 AS base
 WORKDIR /base
-COPY ./app/package.json .
-COPY ./app/yarn.lock .
+COPY package.json .
+COPY yarn.lock .
 RUN yarn install --frozen-lockfile
-COPY ./app .
+COPY . .
 
 # ---- build ----
 FROM base AS builder

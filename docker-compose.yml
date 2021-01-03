@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 
 x-common-props: &common-props
   build:
@@ -6,7 +6,7 @@ x-common-props: &common-props
     target: base
   working_dir: /base
   volumes:
-    - ./app:/base
+    - .:/base
     - node_modules:/base/node_modules
 
 services:
@@ -17,7 +17,7 @@ services:
     <<: *common-props
     container_name: app
     ports:
-      - "5000:5000"
+      - '5000:5000'
     command: yarn dev
 volumes:
   node_modules:

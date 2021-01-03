@@ -1,5 +1,6 @@
-/app/node_modules
-/app/.next
-.dockerignore
+node_modules/
+.next/
+.vscode/
+.vscode.sample/
 Dockerfile
 docker-compose.yml
