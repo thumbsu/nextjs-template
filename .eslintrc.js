@@ -47,6 +47,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-call': 'warn',
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/member-delimiter-style': [
       'error',
@@ -82,6 +83,7 @@ module.exports = {
       files: ['**/*.tsx'],
       rules: {
         'react/prop-types': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off'
       },
     },
   ],

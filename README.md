@@ -4,6 +4,12 @@ Dockerising a Next.js project and Development environment settings
 
 ## Development
 
+Install devDependencies for convenient development using extensions supported by the editor.
+
+```bash
+$ yarn --development
+```
+
 [docker](https://docs.docker.com/engine/install/), [docker-compose](https://docs.docker.com/compose/install/) must be installed
 
 ```bash
