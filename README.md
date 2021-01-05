@@ -10,7 +10,9 @@ Install devDependencies for convenient development using extensions supported by
 $ yarn --development
 ```
 
-[docker](https://docs.docker.com/engine/install/), [docker-compose](https://docs.docker.com/compose/install/) must be installed
+[docker](https://docs.docker.com/engine/install/), [docker-compose](https://docs.docker.com/compose/install/) must be installed.
+
+You can access port 5001.
 
 ```bash
 $ docker-compose up -d dev
@@ -29,6 +31,14 @@ $ yarn --development
 ```
 
 Use husky to check lint and formatting before committing, and check the convention of the commit message.
+
+### storybook
+
+You can access port 5001.
+
+```bash
+$ docker-compose up -d sb
+```
 
 ### Commit Message Convention
 
@@ -61,14 +71,32 @@ $ yarn release -- --release-as patch
 
 ## Production
 
-Build a docker image for production
+Build a docker image for production:
 
 ```bash
-$ docker build --target runner -t <image-name> .
+$ docker build --target runner -f contrib/docker/Dockerfile -t <image-name> .
 ```
 
-Try running the built image
+Try running the built image:
 
 ```bash
-$ docker run -p 5000:5000 <image-name>
+$ docker run -it --rm -p 5000:5000 <image-name>
 ```
+
+You can access port 5000.
+
+### storybook
+
+Build a docker image for production:
+
+```bash
+$ docker build --target nginx -f contrib/docker/Dockerfile-sb -t <image-name> .
+```
+
+Try running the built image:
+
+```bash
+$ docker run -it --rm -p 8080:80 --name web sb
+```
+
+You can access port 8080.

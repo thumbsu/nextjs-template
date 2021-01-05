@@ -2,5 +2,6 @@ node_modules/
 .next/
 .vscode/
 .vscode.sample/
+shared-ui/
 Dockerfile
 docker-compose.yml
