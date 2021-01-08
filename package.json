@@ -6,6 +6,8 @@
     "dev": "next dev -p 5000",
     "build": "next build",
     "start": "next start",
+    "sb": "start-storybook -p 5001",
+    "build-sb": "build-storybook -c .storybook -o shared-ui",
     "lint": "eslint --ext .ts,.tsx .",
     "format": "prettier --check .",
     "release": "standard-version"
@@ -33,21 +35,27 @@
     "react-dom": "17.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@storybook/react": "^6.1.11",
     "@types/node": "^14.14.19",
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.2.2",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
+    "react-docgen-typescript-loader": "^3.7.2",
     "standard-version": "^9.1.0",
     "typescript": "^4.1.3"
   }
