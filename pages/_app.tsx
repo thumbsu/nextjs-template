@@ -1,9 +1,11 @@
 import '../styles/globals.css'
 
 import type { AppProps } from 'next/app'
+import type { FC } from 'react'
+import { wrapper } from 'stores'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const WrapperApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => (
+  <Component {...pageProps} />
+)
 
-export default MyApp
+export default wrapper.withRedux(WrapperApp)
