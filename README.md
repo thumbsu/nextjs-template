@@ -100,3 +100,16 @@ $ docker run -it --rm -p 8080:80 --name web sb
 ```
 
 You can access port 8080.
+
+## Features
+
+- Typescript
+- Next.js v10.0.4
+- Redux Store (next-redux-wrapper, redux-thunk, redux-persist, redux-logger, redux-devtools-extension)
+- Docker build
+- Storybook
+- Eslint
+- Prettier
+- Husky + lint-staged
+- Commit Lint
+- Standard Version

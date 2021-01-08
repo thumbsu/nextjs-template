@@ -7,10 +7,18 @@ const Home: NextPage = () => {
   const { count } = useSelector((state: RootState) => state.counter)
   const dispatch = useDispatch()
   return (
-    <div className="index">
-      <div>{count}</div>
-      <button onClick={() => dispatch(incrementCounter(count))}>+</button>
-      <button onClick={() => dispatch(decrementCounter(count))}>-</button>
+    <div className="py-2 px-4">
+      <h1 className="font-mono text-lg py-2">{count}</h1>
+      <button
+        onClick={() => dispatch(incrementCounter(count))}
+        className="mr-2 py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700">
+        increment +
+      </button>
+      <button
+        onClick={() => dispatch(decrementCounter(count))}
+        className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700">
+        decrement -
+      </button>
     </div>
   )
 }
