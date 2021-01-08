@@ -11,6 +11,7 @@ module.exports = {
     'react-hooks',
     '@typescript-eslint',
     'prettier',
+    'simple-import-sort',
   ],
   extends: [
     'eslint:recommended',
@@ -43,8 +44,14 @@ module.exports = {
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'react/jsx-indent': ['error', 2],
     'react/jsx-indent-props': ['error', 2],
+    'sort-imports': 'off',
+    'import/order': 'off',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
     '@typescript-eslint/no-unsafe-member-access': 'warn',
     '@typescript-eslint/no-unsafe-call': 'warn',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -76,7 +83,6 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
-    'sort-imports': ['error'],
   },
   overrides: [
     {
