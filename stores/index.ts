@@ -1,5 +1,6 @@
 import { createWrapper, HYDRATE, MakeStore } from 'next-redux-wrapper'
-import { AnyAction, createStore } from 'redux'
+import { AnyAction, applyMiddleware, createStore, Middleware } from 'redux'
+import logger from 'redux-logger'
 
 export interface IState {
   tick: string
@@ -16,6 +17,6 @@ const reducer = (state: IState = { tick: 'init' }, action: AnyAction) => {
   }
 }
 
-const makeStore: MakeStore<IState> = () => createStore(reducer)
+const makeStore: MakeStore<IState> = () => createStore(reducer, applyMiddleware(logger))
 
 export const wrapper = createWrapper<IState>(makeStore, { debug: true })
