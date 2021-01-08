@@ -1,15 +1,18 @@
 import { NextPage } from 'next'
-import { useSelector } from 'react-redux'
-import { IState, wrapper } from 'stores'
-
-export const getServerSideProps = wrapper.getServerSideProps(({ store, req, res, ...etc }) => {
-  console.log('2. Page.getServerSideProps uses the store to dispatch things')
-  store.dispatch({ type: 'TICK', payload: 'was set in other page' })
-})
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from 'stores'
+import { decrementCounter, incrementCounter } from 'stores/counter/actions'
 
 const Home: NextPage = () => {
-  const { tick } = useSelector<IState, IState>(state => state)
-  return <div className="index">{tick}</div>
+  const { count } = useSelector((state: RootState) => state.counter)
+  const dispatch = useDispatch()
+  return (
+    <div className="index">
+      <div>{count}</div>
+      <button onClick={() => dispatch(incrementCounter(count))}>+</button>
+      <button onClick={() => dispatch(decrementCounter(count))}>-</button>
+    </div>
+  )
 }
 
 export default Home
