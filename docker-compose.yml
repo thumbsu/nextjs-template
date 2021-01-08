@@ -2,7 +2,8 @@ version: '3.7'
 
 x-common-props: &common-props
   build:
-    context: ./
+    context: .
+    dockerfile: ./contrib/docker/Dockerfile
     target: base
   working_dir: /base
   volumes:
@@ -19,5 +20,11 @@ services:
     ports:
       - '5000:5000'
     command: yarn dev
+  sb:
+    <<: *common-props
+    container_name: sb
+    ports:
+      - '5001:5001'
+    command: yarn sb
 volumes:
   node_modules:
