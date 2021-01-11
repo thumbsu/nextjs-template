@@ -69,22 +69,6 @@ $ yarn release -- --release-as minor
 $ yarn release -- --release-as patch
 ```
 
-## Production
-
-Build a docker image for production:
-
-```bash
-$ docker build --target runner -f contrib/docker/Dockerfile -t <image-name> .
-```
-
-Try running the built image:
-
-```bash
-$ docker run -it --rm -p 5000:5000 <image-name>
-```
-
-You can access port 5000.
-
 ### storybook
 
 Build a docker image for production:
@@ -100,6 +84,30 @@ $ docker run -it --rm -p 8080:80 --name web sb
 ```
 
 You can access port 8080.
+
+**NOTE**: https://tailwindcss.com/docs/installation#post-css-7-compatibility-build
+
+### CSS preprocessor
+
+you don't need to use a preprocessor with Tailwind.
+
+> **No quirks or workarounds.** Because Tailwind adds some new non-standard keywords to CSS (like `@tailwind`, `@apply`, `theme()`, etc.), you often have to write your CSS in annoying, unintuitive ways to get a preprocessor to give you the expected output. Working exclusively with PostCSS avoids this.
+
+## Production
+
+Build a docker image for production:
+
+```bash
+$ docker build --target runner -f contrib/docker/Dockerfile -t <image-name> .
+```
+
+Try running the built image:
+
+```bash
+$ docker run -it --rm -p 5000:5000 <image-name>
+```
+
+You can access port 5000.
 
 ## Features
 
